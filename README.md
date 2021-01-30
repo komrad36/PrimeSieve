@@ -11,7 +11,7 @@ Computing up to 2^32 like this typically takes less than half a second.
 
 - - - -
 
-Create a sieve but do not initialize.
+Create a sieve but do not initialize. Queries will automatically initialize/grow the sieve as needed.
 
 `PrimeSieve sieve;`
 
