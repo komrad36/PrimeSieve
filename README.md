@@ -1,11 +1,17 @@
 # PrimeSieve
 Super fast, dynamically expanding prime sieve for fast primality queries, forward or backward iteration.
 
+Queries automatically grow the sieve as needed.
+
+Uses approximately `n/16` bytes of storage, where `n` is the largest value queried/grown to, so for example, a sieve grown to encompass all 32-bit integers (2^32) uses just 256 MB of storage (2^32 / 16 bytes).
+
+Computing up to 2^32 like this typically takes less than half a second.
+
 ### Examples of usage: ###
 
 - - - -
 
-Create a sieve but do not initialize. Queries automatically grow the sieve as needed.
+Create a sieve but do not initialize.
 
 `PrimeSieve sieve;`
 
