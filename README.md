@@ -13,13 +13,17 @@ Computing up to 2^32 like this typically takes less than half a second.
 
 Create a sieve but do not initialize. Queries will automatically initialize/grow the sieve as needed.
 
-`PrimeSieve sieve;`
+```cpp
+PrimeSieve sieve;
+```
 
 - - - -
 
 Query primality:
 
-`std::cout << (sieve.IsPrime(127) ? "prime" : "composite") << std::endl;`
+```cpp
+std::cout << (sieve.IsPrime(127) ? "prime" : "composite") << std::endl;
+```
 
 > prime
 
@@ -27,7 +31,9 @@ Query primality:
 
 Get next prime (and not including):
 
-`std::cout << sieve.NextPrime(127) << std::endl;`
+```cpp
+std::cout << sieve.NextPrime(127) << std::endl;
+```
 
 > 131
 
@@ -35,7 +41,9 @@ Get next prime (and not including):
 
 Get previous prime (and not including):
 
-`std::cout << sieve.PrevPrime(127) << std::endl;`
+```cpp
+std::cout << sieve.PrevPrime(127) << std::endl;
+```
 
 > 113
 
@@ -43,7 +51,7 @@ Get previous prime (and not including):
 
 Iterate forever upward through primes:
 
-```
+```cpp
 for (const U64 p : sieve)
 {
     std::cout << p << ", ";
@@ -56,7 +64,7 @@ for (const U64 p : sieve)
 
 Iterate forever upward through primes, starting after (and not including):
 
-```
+```cpp
 for (const U64 p : sieve.IterateForwardFrom(50))
 {
     std::cout << p << ", ";
@@ -69,7 +77,7 @@ for (const U64 p : sieve.IterateForwardFrom(50))
 
 Iterate downward through primes, starting before (and not including):
 
-```
+```cpp
 for (const U64 p : sieve.IterateBackwardFrom(50))
 {
     std::cout << p << ", ";
@@ -82,12 +90,16 @@ for (const U64 p : sieve.IterateBackwardFrom(50))
 
 Initialize prime sieve by pre-computing up to a value `x` using efficient multi-threaded evaluation, such that subsequent queries <= `x` are constant-time lookups and don't require growing the sieve:
 
-`PrimeSieve sieve(x);`
+```cpp
+PrimeSieve sieve(x);
+```
 
 - - - -
 
 Grow sieve efficiently up to value `x`:
 
-`sieve.GrowTo(x);`
+```cpp
+sieve.GrowTo(x);
+```
 
 - - - -
